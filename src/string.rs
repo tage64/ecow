@@ -266,6 +266,13 @@ impl EcoString {
         }
         Self(vec)
     }
+
+    /// Create an `EcoString` from something implementing [`Display`].
+    ///
+    /// This is the [`EcoString`] equivalent of [`std::ToString::to_string()`].
+    pub fn from_display(x: impl Display) -> Self {
+        eco_format!("{x}")
+    }
 }
 
 impl Deref for EcoString {
